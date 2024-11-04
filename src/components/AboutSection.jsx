@@ -18,7 +18,7 @@ function AboutSection () {
       transition={{ duration: 0.5 }}
     >
       <motion.h2
-        className='text-gray-500 text-sm mb-5'
+        className='text-gray-500 text-3xl mb-5 text-center font-bold'
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.1 }}
@@ -26,7 +26,7 @@ function AboutSection () {
         ABOUT US
       </motion.h2>
       <motion.h3
-        className='text-3xl font-bold mb-4'
+        className='text-2xl font-bold mb-4'
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
@@ -34,7 +34,7 @@ function AboutSection () {
         WHO AM I?
       </motion.h3>
       <motion.p
-        className='text-gray-700 mb-6 text-justify mx-5'
+        className='text-gray-700 mb-12 text-justify '
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.3 }}
@@ -47,18 +47,6 @@ function AboutSection () {
         algorithms. Throughout my journey, I've contributed to multiple
         projects, including a billing management system built with Java Swing
         and SQL and an E-Market project aimed at simplifying online commerce.
-      </motion.p>
-      <motion.p
-        className='text-gray-700 mb-12 text-justify mx-5'
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.4 }}
-      >
-        In addition to my technical pursuits, I'm a national-level table tennis
-        player and enjoy hobbies like swimming, which keep me grounded and
-        motivated. My strengths include adaptability, self-confidence, and a
-        positive attitude that drives me to continuously improve and take on new
-        challenges.
       </motion.p>
 
       <div className='grid grid-cols-2 md:grid-cols-4 gap-8 mb-12'>
@@ -83,6 +71,19 @@ function AboutSection () {
           </motion.div>
         ))}
       </div>
+
+      <motion.p
+        className='text-gray-700 mb-12 text-justify'
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.4 }}
+      >
+        In addition to my technical pursuits, I'm a national-level table tennis
+        player and enjoy hobbies like swimming, which keep me grounded and
+        motivated. My strengths include adaptability, self-confidence, and a
+        positive attitude that drives me to continuously improve and take on new
+        challenges.
+      </motion.p>
 
       <motion.div
         className='bg-yellow-300 p-8 text-center'

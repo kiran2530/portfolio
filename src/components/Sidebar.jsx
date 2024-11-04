@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { X } from 'lucide-react';
+import {Link} from 'react-router-dom'
 
 const navItems = ['HOME', 'ABOUT', 'SERVICES', 'SKILLS', 'EDUCATION', 'EXPERIENCE', 'WORK', 'BLOG', 'CONTACT'];
 
@@ -16,7 +17,7 @@ function Sidebar({ closeSidebar }) {
       )}
       <div className="text-center mb-8">
         <motion.img
-          src="../../public/kiranProfile.png"
+          src="/kiranProfile.png"
           alt="Kiran Nikam"
           className="rounded-full mx-auto mb-4"
           initial={{ scale: 0 }}
@@ -50,9 +51,9 @@ function Sidebar({ closeSidebar }) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 * index }}
             >
-              <a href={`/${item.toLowerCase()}`} className="hover:text-blue-500 transition duration-300">
+              <Link to={`/${item.toLowerCase()}`} className="hover:text-blue-500 transition duration-300">
                 {item}
-              </a>
+              </Link>
             </motion.li>
           ))}
         </ul>
