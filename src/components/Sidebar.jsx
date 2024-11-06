@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { X } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -16,6 +16,8 @@ const navItems = [
 ]
 
 function Sidebar ({ closeSidebar }) {
+  const [active, setActive] = useState('HOME')
+
   return (
     <aside className='h-full flex flex-col p-6'>
       {closeSidebar && (
@@ -32,14 +34,14 @@ function Sidebar ({ closeSidebar }) {
         <motion.img
           src='/kiranProfile.png'
           alt='Kiran Nikam'
-          className='rounded-full mx-auto mb-4'
+          className='w-48 h-48 rounded-full border-4 border-white dark:border-gray-800 shadow-lg mx-auto'
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 50, damping: 20 }}
         />
         <motion.h1
           className='text-2xl font-bold'
-          initial={{ x: -40, opacity: 0 }}
+          initial={{ x: -180, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
@@ -59,10 +61,11 @@ function Sidebar ({ closeSidebar }) {
           {navItems.map((item, index) => (
             <motion.li
               key={index}
-              className={`mb-2 ${item === 'ABOUT' ? 'text-blue-500' : ''}`}
+              className={`mb-2 ${active === item ? 'text-blue-500' : ''}`}
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 * index + 0.6 }}
+              onClick={() => {setActive(item)}}
             >
               <Link
                 to={`/${item.toLowerCase()}`}
