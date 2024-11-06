@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar'
 import AboutSection from './components/AboutSection'
 import MobileNavbar from './components/MobileNavbar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './components/Home'
 
 function App () {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -35,9 +36,11 @@ function App () {
         <div className='flex-1 flex flex-col overflow-hidden'>
           {isMobile && <MobileNavbar toggleSidebar={toggleSidebar} />}
           <main className='flex-1 overflow-y-auto bg-gray-100'>
-            <div className='container mx-auto p-8'>
+            <div className='container mx-auto'>
               {/* Adding all routes here.................................. */}
               <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/home' element={<Home />} />
                 <Route path='/about' element={<AboutSection />} />
               </Routes>
             </div>

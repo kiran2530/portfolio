@@ -12,7 +12,7 @@ const services = [
 function AboutSection () {
   return (
     <motion.section
-      className='mb-12'
+      className='mb-12 p-10 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -21,7 +21,7 @@ function AboutSection () {
         className='text-gray-500 text-3xl mb-5 text-center font-bold'
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
       >
         ABOUT US
       </motion.h2>
@@ -29,7 +29,7 @@ function AboutSection () {
         className='text-2xl font-bold mb-4'
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.2 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
       >
         WHO AM I?
       </motion.h3>
@@ -37,7 +37,7 @@ function AboutSection () {
         className='text-gray-700 mb-12 text-justify '
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.3 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
       >
         Hello! I'm Kiran Gungaji Nikam, a passionate Computer Science and
         Engineering student in my final year at Sant Gajanan Maharaj College of
@@ -56,7 +56,7 @@ function AboutSection () {
             className='text-center'
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.1 * index }}
+            transition={{ duration: 0.5, delay: 0.1 * index }}
           >
             <service.icon
               className={`text-4xl ${service.color} mx-auto mb-4`}
@@ -76,7 +76,7 @@ function AboutSection () {
         className='text-gray-700 mb-12 text-justify'
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.4 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
       >
         In addition to my technical pursuits, I'm a national-level table tennis
         player and enjoy hobbies like swimming, which keep me grounded and
@@ -89,7 +89,7 @@ function AboutSection () {
         className='bg-yellow-300 p-8 text-center'
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.6 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
       >
         <h2 className='text-3xl font-bold mb-4'>
           I am happy to know you
