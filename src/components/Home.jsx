@@ -1,16 +1,25 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { Link } from 'react-router-dom'
 import { Github, Linkedin, Mail } from 'lucide-react'
 
-const technologies = ['React', 'Node.js', 'Express.js', 'Java', 'MongoDB', 'C#']
+const technologies = [
+  'React',
+  'Node.js',
+  'Express.js',
+  'Java',
+  'MongoDB',
+  'C#',
+  'Tailwind CSS',
+  'Git/Github'
+]
 
 export default function Home () {
   return (
-    <section className='min-h-screen flex flex-col justify-center items-center px-4 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900 overflow-hidden'>
+    <section className='p-10 min-h-screen flex flex-col justify-center items-center px-4 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900 overflow-hidden'>
       <motion.div
         className='text-center relative z-10'
         initial={{ opacity: 0, y: -20 }}
@@ -91,9 +100,21 @@ export default function Home () {
           transition={{ duration: 0.5, delay: 1 }}
         >
           {[
-            { icon: Github, href: 'https://github.com/kiran2530', label: 'GitHub' },
-            { icon: Linkedin, href: 'https://www.linkedin.com/in/kiran-nikam-493220238/', label: 'LinkedIn' },
-            { icon: Mail, href: 'mailto:nikamkiran2530@gmail.com', label: 'Email' }
+            {
+              icon: Github,
+              href: 'https://github.com/kiran2530',
+              label: 'GitHub'
+            },
+            {
+              icon: Linkedin,
+              href: 'https://www.linkedin.com/in/kiran-nikam-493220238/',
+              label: 'LinkedIn'
+            },
+            {
+              icon: Mail,
+              href: 'mailto:nikamkiran2530@gmail.com',
+              label: 'Email'
+            }
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}

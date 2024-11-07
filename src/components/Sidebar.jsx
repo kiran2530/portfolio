@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import { X, Github, Linkedin, Mail } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const navItems = [
   'HOME',
@@ -16,8 +16,6 @@ const navItems = [
 ]
 
 function Sidebar ({ closeSidebar }) {
-  const [active, setActive] = useState('HOME')
-
   return (
     <aside className='h-full flex flex-col p-6'>
       {closeSidebar && (
@@ -62,8 +60,16 @@ function Sidebar ({ closeSidebar }) {
           transition={{ duration: 0.5, delay: 1 }}
         >
           {[
-            { icon: Github, href: 'https://github.com/kiran2530', label: 'GitHub' },
-            { icon: Linkedin, href: 'https://www.linkedin.com/in/kiran-nikam-493220238/', label: 'LinkedIn' },
+            {
+              icon: Github,
+              href: 'https://github.com/kiran2530',
+              label: 'GitHub'
+            },
+            {
+              icon: Linkedin,
+              href: 'https://www.linkedin.com/in/kiran-nikam-493220238/',
+              label: 'LinkedIn'
+            },
             { icon: Mail, href: 'mailto:jackson@example.com', label: 'Email' }
           ].map(({ icon: Icon, href, label }) => (
             <a
@@ -84,20 +90,23 @@ function Sidebar ({ closeSidebar }) {
           {navItems.map((item, index) => (
             <motion.li
               key={index}
-              className={`mb-2 ${active === item ? 'text-blue-500' : ''}`}
+              className='mb-2'
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 * index + 0.6 }}
-              onClick={() => {
-                setActive(item)
-              }}
+              onClick={closeSidebar}
             >
-              <Link
+              <NavLink
                 to={`/${item.toLowerCase()}`}
-                className='hover:text-blue-500 transition duration-300'
+                className={({ isActive }) =>
+                  isActive
+                    ? 'text-blue-500 font-semibold'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-500'
+                }
+                end
               >
                 {item}
-              </Link>
+              </NavLink>
             </motion.li>
           ))}
         </ul>
