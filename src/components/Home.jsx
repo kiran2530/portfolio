@@ -1,68 +1,24 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion'
-import { ChevronDown, Github, Linkedin, Mail, FileText } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
+import { Link } from 'react-router-dom'
+import { Github, Linkedin, Mail } from 'lucide-react'
 
-const technologies = [
-  'React',
-  'Next.js',
-  'Node.js',
-  'TypeScript',
-  'Tailwind CSS',
-  'GraphQL',
-  'AWS'
-]
-const roles = [
-  'UI/UX Designer',
-  'Full Stack Developer',
-  'Problem Solver',
-  'Tech Enthusiast'
-]
+const technologies = ['React', 'Node.js', 'Express.js', 'Java', 'MongoDB', 'C#']
 
 export default function Home () {
-  const [currentTechIndex, setCurrentTechIndex] = useState(0)
-  const controls = useAnimation()
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTechIndex(prevIndex => (prevIndex + 1) % technologies.length)
-    }, 2000)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  useEffect(() => {
-    controls.start({
-      y: [0, -10, 0],
-      transition: { duration: 1, repeat: Infinity, repeatType: 'reverse' }
-    })
-  }, [controls])
-
   return (
-    <section className='min-h-screen flex flex-col justify-center items-center px-4 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900 overflow-hidden p-10'>
+    <section className='min-h-screen flex flex-col justify-center items-center px-4 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900 overflow-hidden'>
       <motion.div
         className='text-center relative z-10'
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <motion.div
-          className='mb-8 relative'
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: 'spring', stiffness: 50, damping: 20 }}
-        >
-          <img
-            src='/kiranProfile.png'
-            alt='Kiran Nikam'
-            className='w-72 h-72 rounded border-4 border-white dark:border-gray-800 shadow-lg mx-auto my-4'
-          />
-        </motion.div>
         <motion.h1
-          className='text-4xl md:text-6xl font-bold mb-4 text-gray-800 dark:text-white'
+          className='text-6xl md:text-8xl font-bold mb-4 text-gray-800 dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500'
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -70,20 +26,27 @@ export default function Home () {
           Kiran Nikam
         </motion.h1>
         <motion.h2
-          className='text-xl md:text-2xl mb-4 text-gray-600 dark:text-gray-300 h-20'
+          className='text-2xl md:text-3xl text-gray-600 dark:text-gray-300 h-20'
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <TypeAnimation
-            sequence={roles.flatMap(role => [role, 1000])}
+            sequence={[
+              'MERN Stack Developer',
+              2000,
+              'Software Developer',
+              2000,
+              'Problem Solver',
+              2000
+            ]}
             wrapper='span'
             speed={50}
             repeat={Infinity}
           />
         </motion.h2>
         <motion.p
-          className='text-lg mb-8 max-w-2xl mx-auto text-gray-700 dark:text-gray-400'
+          className='text-lg mb-14 max-w-2xl mx-auto text-gray-700 dark:text-gray-400'
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -101,21 +64,21 @@ export default function Home () {
         >
           <Link
             to='/projects'
-            className='px-6 py-2 bg-transparent border-2 border-gray-800 dark:border-white text-gray-800 dark:text-white rounded-full hover:bg-gray-800 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 transition duration-300'
+            className='px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-105'
           >
             View Projects
           </Link>
           <Link
             to='/contact'
-            className='px-6 py-2 bg-gray-800 dark:bg-white text-white dark:text-gray-900 rounded-full hover:bg-gray-700 dark:hover:bg-gray-100 transition duration-300'
+            className='px-6 py-3 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition duration-300 transform hover:scale-105'
           >
             Get in Touch
           </Link>
           <a
-            href='/path-to-your-resume.pdf'
+            href='https://drive.google.com/file/d/1WL0YRJB2MCz1WL7fkuo-dighqLkNrdrm/view?usp=drivesdk'
             target='_blank'
             rel='noopener noreferrer'
-            className='px-6 py-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition duration-300'
+            className='px-6 py-3 bg-gray-800 text-white rounded-full hover:bg-gray-900 transition duration-300 transform hover:scale-105'
           >
             Download Resume
           </a>
@@ -128,18 +91,18 @@ export default function Home () {
           transition={{ duration: 0.5, delay: 1 }}
         >
           {[
-            { icon: Github, href: 'https://github.com', label: 'GitHub' },
-            { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-            { icon: Mail, href: 'mailto:jackson@example.com', label: 'Email' }
+            { icon: Github, href: 'https://github.com/kiran2530', label: 'GitHub' },
+            { icon: Linkedin, href: 'https://www.linkedin.com/in/kiran-nikam-493220238/', label: 'LinkedIn' },
+            { icon: Mail, href: 'mailto:nikamkiran2530@gmail.com', label: 'Email' }
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}
               href={href}
               target='_blank'
               rel='noopener noreferrer'
-              className='text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition duration-300'
+              className='text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition duration-300 transform hover:scale-110'
             >
-              <Icon size={24} />
+              <Icon size={32} />
               <span className='sr-only'>{label}</span>
             </a>
           ))}
@@ -152,19 +115,18 @@ export default function Home () {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1.2 }}
       >
-        <h3 className='text-lg font-semibold mb-4 text-gray-700 dark:text-gray-300'>
+        <h3 className='text-xl font-semibold mb-6 text-gray-700 dark:text-gray-300'>
           Technologies I work with:
         </h3>
         <div className='flex flex-wrap justify-center gap-4'>
           {technologies.map((tech, index) => (
             <motion.span
               key={tech}
-              className={`bg-white dark:bg-gray-800 text-gray-800 dark:text-white px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
-                index === currentTechIndex ? 'scale-110 shadow-lg' : ''
-              }`}
+              className='bg-white dark:bg-gray-800 text-gray-800 dark:text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:shadow-lg transition-all duration-300'
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: 1.4 + index * 0.1 }}
+              whileHover={{ scale: 1.1 }}
             >
               {tech}
             </motion.span>

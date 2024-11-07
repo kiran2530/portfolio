@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { X } from 'lucide-react'
+import { X, Github, Linkedin, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const navItems = [
@@ -53,8 +53,31 @@ function Sidebar ({ closeSidebar }) {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          Fullstack Developer
+          Developer
         </motion.p>
+        <motion.div
+          className='flex justify-center space-x-6 mt-2'
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1 }}
+        >
+          {[
+            { icon: Github, href: 'https://github.com/kiran2530', label: 'GitHub' },
+            { icon: Linkedin, href: 'https://www.linkedin.com/in/kiran-nikam-493220238/', label: 'LinkedIn' },
+            { icon: Mail, href: 'mailto:jackson@example.com', label: 'Email' }
+          ].map(({ icon: Icon, href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition duration-300 transform hover:scale-110'
+            >
+              <Icon size={20} />
+              <span className='sr-only'>{label}</span>
+            </a>
+          ))}
+        </motion.div>
       </div>
       <nav className='flex-grow'>
         <ul>
@@ -65,7 +88,9 @@ function Sidebar ({ closeSidebar }) {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 * index + 0.6 }}
-              onClick={() => {setActive(item)}}
+              onClick={() => {
+                setActive(item)
+              }}
             >
               <Link
                 to={`/${item.toLowerCase()}`}
