@@ -93,7 +93,7 @@ export default function Skills () {
   )
 
   return (
-    <section className='p-10 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900 '>
+    <section className='p-5 md:p-10 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900 '>
       <div className='container mx-auto'>
         <motion.h2
           className='text-gray-500 text-3xl mb-8 md:mb-20 text-center font-bold'
