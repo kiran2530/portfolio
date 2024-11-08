@@ -49,8 +49,7 @@ const blogPosts = [
     date: '2024-07-15',
     readTime: '6 min read',
     tags: ['Cloudinary', 'Media Management', 'Web Development'],
-    image:
-      'https://via.placeholder.com/200x300.png?text=Cloudinary',
+    image: 'https://via.placeholder.com/200x300.png?text=Cloudinary',
     content:
       'Explore how to integrate Cloudinary for managing images and videos in your web application. From uploading and transforming media to optimizing performance, this article covers everything you need to get started with Cloudinary.'
   },
@@ -74,8 +73,7 @@ const blogPosts = [
     date: '2024-05-20',
     readTime: '6 min read',
     tags: ['Cloud Computing', 'Virtualization', 'Technology'],
-    image:
-      'https://via.placeholder.com/200x300.png?text=Virtualization',
+    image: 'https://via.placeholder.com/200x300.png?text=Virtualization',
     content:
       'A primer on virtualization concepts in cloud computing, covering hypervisors, virtual machines, and containers. This article is designed for developers and IT enthusiasts new to virtualization, looking to understand its impact on cloud infrastructure.'
   }
@@ -200,7 +198,7 @@ export default function Blog () {
 
   return (
     <section className='p-10 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900'>
-      <div className='container mx-auto px-4'>
+      <div className='container mx-auto'>
         <motion.h2
           className='text-gray-500 text-3xl mb-5 text-center font-bold'
           initial={{ opacity: 0, y: -20 }}

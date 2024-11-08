@@ -52,7 +52,7 @@ const services = [
 export default function Services () {
   return (
     <section className='p-10 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900'>
-      <div className='container mx-auto px-4'>
+      <div className='container mx-auto'>
         <motion.h2
           className='text-gray-500 text-3xl mb-5 text-center font-bold'
           initial={{ opacity: 0, y: -20 }}
