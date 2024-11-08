@@ -1,11 +1,9 @@
-'use client'
-
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Sidebar from './components/Sidebar'
 import AboutSection from './components/AboutSection'
 import MobileNavbar from './components/MobileNavbar'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './components/Home'
 import Services from './components/Services'
 import Skills from './components/Skills'
@@ -47,15 +45,15 @@ function App () {
               {/* Adding all routes here.................................. */}
               <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/home' element={<Home />} />
-                <Route path='/about' element={<AboutSection />} />
-                <Route path='/services' element={<Services />} />
-                <Route path='/skills' element={<Skills />} />
-                <Route path='/education' element={<Education />} />
-                <Route path='/experience' element={<Experience />} />
-                <Route path='/work' element={<Work />} />
-                <Route path='/blog' element={<Blog />} />
-                <Route path='/contact' element={<Contact />} />
+                <Route exact path='/home' element={<Home />} />
+                <Route exact path='/about' element={<AboutSection />} />
+                <Route exact path='/services' element={<Services />} />
+                <Route exact path='/skills' element={<Skills />} />
+                <Route exact path='/education' element={<Education />} />
+                <Route exact path='/experience' element={<Experience />} />
+                <Route exact path='/work' element={<Work />} />
+                <Route exact path='/blog' element={<Blog />} />
+                <Route exact path='/contact' element={<Contact />} />
               </Routes>
             </div>
           </main>
