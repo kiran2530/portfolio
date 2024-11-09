@@ -70,7 +70,11 @@ function Sidebar ({ closeSidebar }) {
               href: 'https://www.linkedin.com/in/kiran-nikam-493220238/',
               label: 'LinkedIn'
             },
-            { icon: Mail, href: 'mailto:jackson@example.com', label: 'Email' }
+            {
+              icon: Mail,
+              href: 'mailto:nikamkiran2530@gmail.com.com',
+              label: 'Email'
+            }
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}

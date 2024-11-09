@@ -72,7 +72,7 @@ export default function Home () {
           transition={{ duration: 0.5, delay: 0.8 }}
         >
           <Link
-            to='/projects'
+            to='/work'
             className='px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-105'
           >
             View Projects
