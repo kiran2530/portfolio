@@ -121,7 +121,7 @@ function Sidebar ({ closeSidebar }) {
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
       >
-        <p>© Copyright 2021 All rights reserved.</p>
+        <p>© Copyright 2024 All rights reserved.</p>
         <p>Made with ♥ by Kiran</p>
       </motion.footer>
     </aside>
