@@ -46,13 +46,7 @@ const educationData = [
       'Secured 91.20% overall',
       'Active participant in science exhibitions and competitions'
     ],
-    courses: [
-      'Mathematics',
-      'Physics',
-      'Chemistry',
-      'English',
-      'Hindi'
-    ],
+    courses: ['Mathematics', 'Physics', 'Chemistry', 'English', 'Hindi'],
     color: 'from-yellow-500 to-orange-500'
   },
   {
@@ -72,7 +66,7 @@ const educationData = [
 ]
 
 const EducationCard = ({ education, index }) => {
-  const [isExpanded, setIsExpanded] = useState(true)
+  const [isExpanded, setIsExpanded] = useState(false)
 
   return (
     <motion.div
@@ -90,20 +84,6 @@ const EducationCard = ({ education, index }) => {
             {education.institution}
           </p>
         </div>
-        <motion.button
-          className={`text-gray-600 dark:text-gray-400 p-2 rounded-full ${
-            isExpanded ? 'bg-gray-200 dark:bg-gray-700' : ''
-          }`}
-          onClick={() => setIsExpanded(!isExpanded)}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-        >
-          {isExpanded ? (
-            <ChevronUp className='w-6 h-6' />
-          ) : (
-            <ChevronDown className='w-6 h-6' />
-          )}
-        </motion.button>
       </div>
       <div className='flex items-center text-gray-600 dark:text-gray-400 mb-2'>
         <MapPin className='w-4 h-4 mr-2' />
@@ -116,6 +96,20 @@ const EducationCard = ({ education, index }) => {
       <p className='text-gray-700 dark:text-gray-300 mb-4'>
         {education.description}
       </p>
+      <motion.button
+        className={`text-gray-600 dark:text-gray-400 p-2 rounded-full ${
+          isExpanded ? 'bg-gray-200 dark:bg-gray-700' : ''
+        }`}
+        onClick={() => setIsExpanded(!isExpanded)}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        {isExpanded ? (
+          <ChevronUp className='w-6 h-6' />
+        ) : (
+          <ChevronDown className='w-6 h-6' />
+        )}
+      </motion.button>
       <AnimatePresence>
         {isExpanded && (
           <motion.div

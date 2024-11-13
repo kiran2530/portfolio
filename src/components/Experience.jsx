@@ -95,14 +95,14 @@ const ExperienceCard = ({ experience, index }) => {
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className='px-6 pb-6'
+          className='pb-6'
         >
           <div className='mt-4'>
             <h4 className='text-lg font-semibold text-gray-800 dark:text-white mb-2 flex items-center'>
               <Award className='w-5 h-5 mr-2 text-yellow-500' />
               Key Achievements
             </h4>
-            <ul className='space-y-2'>
+            <ul className='space-y-2 px-6'>
               {experience.achievements.map((achievement, index) => (
                 <motion.li
                   key={index}
@@ -122,7 +122,7 @@ const ExperienceCard = ({ experience, index }) => {
               <Settings className='w-5 h-5 mr-2 text-blue-500' />
               Technologies Used
             </h4>
-            <div className='flex flex-wrap gap-2'>
+            <div className='flex flex-wrap gap-2 px-6'>
               {experience.technologies.map((tech, index) => (
                 <motion.span
                   key={index}
