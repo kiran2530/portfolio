@@ -17,7 +17,7 @@ const navItems = [
 
 function Sidebar ({ closeSidebar }) {
   return (
-    <aside className='h-full flex flex-col p-6'>
+    <aside className='h-full flex flex-col p-6 fixed bg-white'>
       {closeSidebar && (
         <div className='flex justify-end mb-4'>
           <button

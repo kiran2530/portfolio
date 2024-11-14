@@ -12,6 +12,7 @@ import Experience from './components/Experience'
 import Work from './components/Work'
 import Blog from './components/Blog'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function App () {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -32,15 +33,15 @@ function App () {
 
   return (
     <Router>
-      <div className='flex h-screen overflow-hidden'>
+      <div className='flex overflow-hidden'>
         {!isMobile && (
           <div className='w-64 bg-white shadow-lg'>
             <Sidebar />
           </div>
         )}
-        <div className='flex-1 flex flex-col overflow-hidden'>
+        <div className='flex-1 flex flex-col overflow-hidden '>
           {isMobile && <MobileNavbar toggleSidebar={toggleSidebar} />}
-          <main className='flex-1 overflow-y-auto bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900'>
+          <main className='mt-14 md:mt-0 flex-1 overflow-y-auto bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900'>
             <div className='container mx-auto'>
               {/* Adding all routes here.................................. */}
               <Routes>
@@ -56,6 +57,7 @@ function App () {
                 <Route exact path='/contact' element={<Contact />} />
               </Routes>
             </div>
+            <Footer />
           </main>
         </div>
         <AnimatePresence>
