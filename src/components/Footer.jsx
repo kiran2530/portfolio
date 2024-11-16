@@ -1,7 +1,6 @@
-'use client'
-
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
   Facebook,
   Twitter,
@@ -21,14 +20,19 @@ const socialLinks = [
 ]
 
 const quickLinks = [
-  { name: 'Home', url: '/home' },
+  { name: 'Home', url: '/' },
   { name: 'About', url: '/about' },
+  { name: 'Services', url: '/services' },
   { name: 'Contact', url: '/contact' }
 ]
+
+const ExternalLink = motion.create(Link)
 
 export default function Footer () {
   const [email, setEmail] = useState('')
   const [subscribeStatus, setSubscribeStatus] = useState('')
+  const location = useLocation()
+  const navigate = useNavigate()
 
   const handleSubscribe = async e => {
     e.preventDefault()
@@ -41,6 +45,17 @@ export default function Footer () {
     setTimeout(() => {
       setSubscribeStatus('')
     }, 3000)
+  }
+
+  const handleInternalLinkClick = (e, to) => {
+    e.preventDefault()
+    if (location.pathname !== to) {
+      navigate(to)
+    }
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   }
 
   return (
@@ -59,18 +74,22 @@ export default function Footer () {
             </p>
             <div className='flex space-x-4'>
               {socialLinks.map(link => (
-                <motion.a
+                <ExternalLink
                   key={link.name}
-                  href={link.url}
+                  to={link.url}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='text-gray-600 dark:text-gray-400 hover:text-gray-900 transition-colors duration-300'
+                  className='text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-300'
                   whileHover={{ scale: 1.2 }}
                   whileTap={{ scale: 0.9 }}
+                  onClick={e => {
+                    e.preventDefault()
+                    window.open(link.url, '_blank', 'noopener,noreferrer')
+                  }}
                 >
                   <link.icon size={20} />
                   <span className='sr-only'>{link.name}</span>
-                </motion.a>
+                </ExternalLink>
               ))}
             </div>
           </motion.div>
@@ -85,13 +104,15 @@ export default function Footer () {
             <ul className='space-y-2'>
               {quickLinks.map(link => (
                 <li key={link.name}>
-                  <motion.a
-                    href={link.url}
-                    className='text-gray-600 dark:text-gray-600 hover:text-gray-900 transition-colors duration-300'
-                    whileHover={{ x: 5 }}
-                  >
-                    {link.name}
-                  </motion.a>
+                  <motion.div whileHover={{ x: 5 }}>
+                    <Link
+                      to={link.url}
+                      className='text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors duration-300'
+                      onClick={e => handleInternalLinkClick(e, link.url)}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
                 </li>
               ))}
             </ul>
@@ -105,12 +126,13 @@ export default function Footer () {
           >
             <h3 className='text-xl font-semibold mb-4'>Contact Info</h3>
             <ul className='space-y-2 text-gray-600 dark:text-gray-400'>
+              <li>Kiran Gungaji Nikam</li>
               <li className='flex items-center'>
                 <Mail size={16} className='mr-2' />
-                nikamkiran2530@example.com
+                nikamkiran2530@gmail.com
               </li>
-              <li>Kolhapur, 416208</li>
-              <li>India</li>
+              <li>+91 8975952690</li>
+              <li>Shelewadi, Kolhapur, India, 416208</li>
             </ul>
           </motion.div>
 
@@ -138,7 +160,7 @@ export default function Footer () {
               />
               <motion.button
                 type='submit'
-                className='bg-slate-900 hover:bg-gray-600 text-white px-4 py-2 rounded-md  transition-colors duration-300 flex items-center justify-center'
+                className='bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded-md transition-colors duration-300 flex items-center justify-center'
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -147,7 +169,7 @@ export default function Footer () {
             </form>
             {subscribeStatus && (
               <motion.p
-                className='mt-2 text-sm text-green-700'
+                className='mt-2 text-sm text-green-400'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -160,12 +182,12 @@ export default function Footer () {
 
         {/* Copyright */}
         <motion.div
-          className='mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-gray-600 dark:text-gray-400'
+          className='mt-2 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-gray-600 dark:text-gray-400'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <p>© Copyright 2024 All rights reserved.</p>
+          <p>© Copyright {new Date().getFullYear()} All rights reserved.</p>
           <p>Made with ♥ by Kiran</p>
         </motion.div>
       </div>

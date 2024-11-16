@@ -69,7 +69,7 @@ function App () {
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               className='fixed inset-y-0 right-0 z-50 w-64 bg-white shadow-lg'
             >
-              <Sidebar closeSidebar={() => setIsSidebarOpen(false)} />
+              <Sidebar closeSidebar={() => setIsSidebarOpen(false)} setIsSidebarOpen={setIsSidebarOpen}/>
             </motion.div>
           )}
         </AnimatePresence>

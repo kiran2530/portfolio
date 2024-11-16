@@ -42,6 +42,8 @@ export default function Home () {
         >
           <TypeAnimation
             sequence={[
+              'Programmer',
+              2000,
               'MERN Stack Developer',
               2000,
               'Software Developer',

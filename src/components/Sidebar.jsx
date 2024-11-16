@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { X, Github, Linkedin, Mail } from 'lucide-react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 
 const navItems = [
   'HOME',
@@ -15,7 +15,23 @@ const navItems = [
   'CONTACT'
 ]
 
-function Sidebar ({ closeSidebar }) {
+function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleInternalLinkClick = (e, to) => {
+    if(setIsSidebarOpen) {
+      setIsSidebarOpen(false)
+    }
+    if (location.pathname !== to) {
+      navigate(to)
+    }
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <aside className='h-full flex flex-col p-6 fixed bg-white'>
       {closeSidebar && (
@@ -98,7 +114,9 @@ function Sidebar ({ closeSidebar }) {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 * index + 0.6 }}
-              onClick={closeSidebar}
+              onClick={e => {
+                handleInternalLinkClick(e, `/${item.toLowerCase()}`)
+              }}
             >
               <NavLink
                 to={`/${item.toLowerCase()}`}
@@ -121,7 +139,7 @@ function Sidebar ({ closeSidebar }) {
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
       >
-        <p>© Copyright 2024 All rights reserved.</p>
+        <p>© Copyright {new Date().getFullYear()} All rights reserved.</p>
         <p>Made with ♥ by Kiran</p>
       </motion.footer>
     </aside>
