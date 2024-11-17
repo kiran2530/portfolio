@@ -1,7 +1,9 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { X, Github, Linkedin, Mail } from 'lucide-react'
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { X, Github, Linkedin, Mail, UserPlus, Users } from 'lucide-react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import SubscriptionModal from './SubscriptionModal'
+import Subscribers from './Subscribers'
 
 const navItems = [
   'HOME',
@@ -18,9 +20,11 @@ const navItems = [
 function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
   const location = useLocation()
   const navigate = useNavigate()
+  const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false)
+  const [isSubscribersOpen, setIsSubscribersOpen] = useState(false)
 
   const handleInternalLinkClick = (e, to) => {
-    if(setIsSidebarOpen) {
+    if (setIsSidebarOpen) {
       setIsSidebarOpen(false)
     }
     if (location.pathname !== to) {
@@ -33,18 +37,18 @@ function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
   }
 
   return (
-    <aside className='h-full flex flex-col p-6 fixed bg-white'>
+    <aside className='h-full flex flex-col p-6 fixed bg-white dark:bg-gray-800 w-64 z-50'>
       {closeSidebar && (
         <div className='flex justify-end mb-4'>
           <button
             onClick={closeSidebar}
-            className='text-gray-500 hover:text-gray-700'
+            className='text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
           >
             <X size={24} />
           </button>
         </div>
       )}
-      <div className='text-center mb-8'>
+      <div className='text-center mb-4'>
         <motion.img
           src='/kiranProfile.png'
           alt='Kiran Nikam'
@@ -54,7 +58,7 @@ function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
           transition={{ type: 'spring', stiffness: 50, damping: 20 }}
         />
         <motion.h1
-          className='text-2xl font-bold'
+          className='text-2xl font-bold text-gray-800 dark:text-white'
           initial={{ x: -180, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -105,6 +109,27 @@ function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
           ))}
         </motion.div>
       </div>
+      <div className='mt-0 flex justify-center space-x-2 mb-4 ml-4'>
+        <motion.button
+          onClick={() => setIsSubscriptionModalOpen(true)}
+          className='flex items-center justify-center px-2 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300 text-sm'
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <UserPlus size={20} className='mr-2' />
+          Subscribe
+        </motion.button>
+        <motion.button
+          onClick={() => setIsSubscribersOpen(true)}
+          className='flex items-center justify-center px-2 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300 text-sm'
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {/* <Users size={20} className='mr-2' /> */}
+          <p className='mr-1'>123</p>
+          <p>Subscribers</p>
+        </motion.button>
+      </div>
       <nav className='flex-grow'>
         <ul>
           {navItems.map((item, index) => (
@@ -142,6 +167,22 @@ function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
         <p>© Copyright {new Date().getFullYear()} All rights reserved.</p>
         <p>Made with ♥ by Kiran</p>
       </motion.footer>
+      <AnimatePresence>
+        {isSubscriptionModalOpen && (
+          <SubscriptionModal
+            isOpen={isSubscriptionModalOpen}
+            onClose={() => setIsSubscriptionModalOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {isSubscribersOpen && (
+          <Subscribers
+            isOpen={isSubscribersOpen}
+            onClose={() => setIsSubscribersOpen(false)}
+          />
+        )}
+      </AnimatePresence>
     </aside>
   )
 }
