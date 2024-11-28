@@ -1,72 +1,103 @@
-'use client'
-
-import React, { useEffect } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
+import {
+  ArrowRight,
+  Github,
+  Linkedin,
+  Mail,
+  Code,
+  Briefcase,
+  Phone
+} from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { Github, Linkedin, Mail } from 'lucide-react'
 
-const technologies = [
-  'React',
-  'Node.js',
-  'Express.js',
-  'Java',
-  'MongoDB',
-  'C#',
-  'Tailwind CSS',
-  'Git/Github'
-]
+export default function Component () {
+  const skills = ['React', 'Node.js', 'TypeScript', 'MongoDB', 'GraphQL']
+  const stats = [
+    { label: 'Projects', value: 20 },
+    { label: 'Years Exp', value: 1 },
+    { label: 'Clients', value: 2 }
+  ]
 
-export default function Home () {
   return (
-    <section className='p-10 min-h-screen flex flex-col justify-center items-center px-4 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900 overflow-hidden'>
-      <motion.div
-        className='text-center relative z-10'
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <motion.h1
-          className='text-6xl md:text-8xl font-bold mb-4 text-gray-800 dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500'
+    <div className='min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 p-8'>
+      <div className='max-w-4xl mx-auto'>
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className='text-center mb-4'
         >
-          Kiran Nikam
-        </motion.h1>
-        <motion.h2
-          className='text-2xl md:text-3xl text-gray-600 dark:text-gray-300 h-20'
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <TypeAnimation
-            sequence={[
-              'Programmer',
-              2000,
-              'MERN Stack Developer',
-              2000,
-              'Software Developer',
-              2000,
-              'Problem Solver',
-              2000
-            ]}
-            wrapper='span'
-            speed={50}
-            repeat={Infinity}
-          />
-        </motion.h2>
-        <motion.p
-          className='text-lg mb-14 max-w-2xl mx-auto text-gray-700 dark:text-gray-400'
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          Passionate about crafting beautiful, intuitive interfaces and robust
-          backend solutions. Turning complex ideas into elegant, user-friendly
-          applications.
-        </motion.p>
-
+          <motion.h1
+            className='text-6xl md:text-8xl font-bold mb-4 text-gray-800 dark:text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500'
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Kiran Nikam
+          </motion.h1>
+          <motion.h2
+            className='text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-4'
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <TypeAnimation
+              sequence={[
+                'Programmer',
+                2000,
+                'MERN Stack Developer',
+                2000,
+                'Software Developer',
+                2000,
+                'Problem Solver',
+                2000
+              ]}
+              wrapper='span'
+              speed={50}
+              repeat={Infinity}
+            />
+          </motion.h2>
+          <div className='flex justify-center space-x-4 mb-8'>
+            <a
+              href='https://github.com/kiran2530'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white transition-colors'
+            >
+              <Github size={24} />
+              <span className='sr-only'>GitHub</span>
+            </a>
+            <a
+              href='https://www.linkedin.com/in/kiran-nikam-493220238/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white transition-colors'
+            >
+              <Linkedin size={24} />
+              <span className='sr-only'>LinkedIn</span>
+            </a>
+            <a
+              href='mailto:nikamkiran2530@gmail.com'
+              className='text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white transition-colors'
+            >
+              <Mail size={24} />
+              <span className='sr-only'>Email</span>
+            </a>
+          </div>
+          <motion.p
+            className='text-lg mb-4 max-w-2xl mx-auto text-gray-700 dark:text-gray-400'
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            Welcome to my portfolio! I'm passionate about creating efficient,
+            scalable, and user-friendly web applications. With expertise in both
+            front-end and back-end technologies, I bring ideas to life through
+            code.
+          </motion.p>
+        </motion.div>
         <motion.div
           className='flex flex-wrap justify-center gap-4 mb-12'
           initial={{ opacity: 0, y: -20 }}
@@ -95,94 +126,52 @@ export default function Home () {
           </a>
         </motion.div>
 
-        <motion.div
-          className='flex justify-center space-x-6 mb-12'
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1 }}
-        >
-          {[
-            {
-              icon: Github,
-              href: 'https://github.com/kiran2530',
-              label: 'GitHub'
-            },
-            {
-              icon: Linkedin,
-              href: 'https://www.linkedin.com/in/kiran-nikam-493220238/',
-              label: 'LinkedIn'
-            },
-            {
-              icon: Mail,
-              href: 'mailto:nikamkiran2530@gmail.com',
-              label: 'Email'
-            }
-          ].map(({ icon: Icon, href, label }) => (
-            <a
-              key={label}
-              href={href}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition duration-300 transform hover:scale-110'
-            >
-              <Icon size={32} />
-              <span className='sr-only'>{label}</span>
-            </a>
-          ))}
-        </motion.div>
-      </motion.div>
-
-      <motion.div
-        className='text-center'
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 1.2 }}
-      >
-        <h3 className='text-xl font-semibold mb-6 text-gray-700 dark:text-gray-300'>
-          Technologies I work with:
-        </h3>
-        <div className='flex flex-wrap justify-center gap-4'>
-          {technologies.map((tech, index) => (
-            <motion.span
-              key={tech}
-              className='bg-white dark:bg-gray-800 text-gray-800 dark:text-white px-4 py-2 rounded-full text-sm font-medium shadow-md hover:shadow-lg transition-all duration-300'
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 1.4 + index * 0.1 }}
-              whileHover={{ scale: 1.1 }}
-            >
-              {tech}
-            </motion.span>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Background animation */}
-      <div className='absolute inset-0 -z-10 overflow-hidden'>
-        {[...Array(20)].map((_, i) => (
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mb-12'>
           <motion.div
-            key={i}
-            className='absolute bg-blue-300 dark:bg-blue-700 rounded-full opacity-10'
-            style={{
-              width: Math.random() * 300 + 50,
-              height: Math.random() * 300 + 50,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`
-            }}
-            animate={{
-              x: [0, Math.random() * 400 - 200],
-              y: [0, Math.random() * 400 - 200],
-              scale: [1, Math.random() + 0.5],
-              rotate: [0, Math.random() * 360]
-            }}
-            transition={{
-              duration: Math.random() * 10 + 20,
-              repeat: Infinity,
-              repeatType: 'reverse'
-            }}
-          />
-        ))}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className='bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6'
+          >
+            <h2 className='text-2xl font-semibold text-gray-800 dark:text-white mb-4'>
+              Skills
+            </h2>
+            <div className='flex flex-wrap gap-2'>
+              {skills.map((skill, index) => (
+                <span
+                  key={index}
+                  className='bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300'
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className='bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6'
+          >
+            <h2 className='text-2xl font-semibold text-gray-800 dark:text-white mb-4'>
+              Quick Stats
+            </h2>
+            <div className='grid grid-cols-3 gap-4'>
+              {stats.map((stat, index) => (
+                <div key={index} className='text-center'>
+                  <div className='text-3xl font-bold text-blue-500'>
+                    {stat.value}
+                  </div>
+                  <div className='text-sm text-gray-600 dark:text-gray-300'>
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </section>
+    </div>
   )
 }
