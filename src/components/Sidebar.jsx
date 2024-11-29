@@ -5,6 +5,7 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import SubscriptionModal from './SubscriptionModal'
 import Subscribers from './Subscribers'
 import axios from 'axios'
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 
 const navItems = [
   'HOME',
@@ -29,7 +30,7 @@ function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
   const fetchSubscribers = async () => {
     setIsLoading(true)
     try {
-      const response = await axios.get('http://localhost:5000/api/users')
+      const response = await axios.get(`${BACKEND_URL}/api/users`)
       setSubscribers(response.data.users)
     } catch (error) {
       console.error('Error fetching subscribers:', error)
@@ -141,7 +142,9 @@ function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
         <motion.button
           disabled={isLoading ? true : false}
           onClick={() => setIsSubscribersOpen(true)}
-          className={`flex items-center justify-center px-2 py-2 ${isLoading? 'cursor-not-allowed':'cursor-pointer'} bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300 text-sm`}
+          className={`flex items-center justify-center px-2 py-2 ${
+            isLoading ? 'cursor-not-allowed' : 'cursor-pointer'
+          } bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300 text-sm`}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

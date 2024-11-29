@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Send, CheckCircle, AlertTriangle } from 'lucide-react'
 import axios from 'axios'
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 
 function SubscriptionModal ({ isOpen, onClose, fetchSubscribers }) {
   const [name, setName] = useState('')
@@ -17,10 +18,9 @@ function SubscriptionModal ({ isOpen, onClose, fetchSubscribers }) {
   // **API call to send OTP**
   const sendOtp = async () => {
     try {
-      const response = await axios.post(
-        'http://localhost:5000/api/users/send-otp',
-        { email }
-      )
+      const response = await axios.post(`${BACKEND_URL}/api/users/send-otp`, {
+        email
+      })
       if (response.data.status) {
         setSubmitMessage('OTP sent to your email.')
         setOtpSent(true)
@@ -39,7 +39,7 @@ function SubscriptionModal ({ isOpen, onClose, fetchSubscribers }) {
   // **API call to add user**
   const addUser = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/users', {
+      const response = await axios.post(`${BACKEND_URL}/api/users`, {
         email,
         otp,
         name
