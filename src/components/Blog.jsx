@@ -13,7 +13,8 @@ const blogPosts = [
     date: '2024-11-29',
     readTime: '12 min read',
     tags: ['MERN Stack', 'Web Development', 'Beginner'],
-    image: 'https://via.placeholder.com/200x300.png?text=MERN+Stack',
+    image:
+      'https://files.oaiusercontent.com/file-Bx5pbyxJNr6GGVLtzP6zzZ?se=2024-11-29T08%3A19%3A14Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D64a8b651-7f7f-4b9a-9760-b7f203236f88.webp&sig=3nthq7aq/JDQsZmU8NoFvVtz9t1f2eUFaEmo20IQbTo%3D',
     content: `
       The MERN (MongoDB, Express.js, React, Node.js) stack is a powerful and widely-used technology stack for building modern web applications. In this blog, I share my journey as a fresher in MERN stack development, the resources I used, the challenges I faced, and the strategies that helped me overcome them. <br />
       
@@ -47,7 +48,8 @@ const blogPosts = [
     date: '2024-11-29',
     readTime: '10 min read',
     tags: ['E-Commerce', 'Full Stack', 'Project Development'],
-    image: 'https://via.placeholder.com/200x300.png?text=E-Commerce',
+    image:
+      'https://files.oaiusercontent.com/file-M6XjHC195Qby6d3gq5rJdF?se=2024-11-29T08%3A19%3A27Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D92d53630-e933-4e47-8a26-5772c7958a31.webp&sig=ie0tGAoDAa1F2lULDTXNgQow2SuxCP1u56ZoYekvws4%3D',
     content: `
       Creating an E-Commerce platform was one of the most rewarding projects in my development journey. This blog covers everything from the initial idea to the final implementation, highlighting the key challenges faced and solutions adopted. <br />
       
