@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Calendar, Clock, ChevronRight, Search, Tag } from 'lucide-react'
+import { X, Calendar, Clock, ChevronRight, Search, Tag } from 'lucide-react'
 
 const blogPosts = [
   {
@@ -14,22 +14,30 @@ const blogPosts = [
     readTime: '12 min read',
     tags: ['MERN Stack', 'Web Development', 'Beginner'],
     image: 'https://via.placeholder.com/200x300.png?text=MERN+Stack',
-    content:
-      'The MERN (MongoDB, Express.js, React, Node.js) stack is a powerful and widely-used technology stack for building modern web applications. In this blog, I share my journey as a fresher in MERN stack development, the resources I used, the challenges I faced, and the strategies that helped me overcome them.\n\n' +
-      '**Why MERN Stack?**\n' +
-      'The MERN stack provides a seamless development experience. With JavaScript powering both the client and server sides, it simplifies development and allows for a more cohesive application structure.\n\n' +
-      '**Learning MongoDB Basics**\n' +
-      'MongoDB was the first tool I explored. Starting with basic CRUD operations, I built a simple student database project to solidify my understanding. Using tools like Compass and integrating MongoDB with Mongoose in my Express.js applications was a turning point.\n\n' +
-      '**Express.js: The Power of Middleware**\n' +
-      'Express.js helped me understand middleware and the MVC architecture. I implemented features like user authentication, routing, and session management in my projects, like an E-Commerce platform for vendors and buyers.\n\n' +
-      '**React: Frontend Magic**\n' +
-      'React was both exciting and challenging. I created reusable components, styled them with CSS modules, and managed state using hooks like useState and useEffect. Working on a dynamic navbar for buyers and vendors was a major highlight of my learning journey.\n\n' +
-      '**Node.js: Backend Foundation**\n' +
-      'Node.js tied the stack together. From setting up servers to managing APIs, I built scalable solutions like product and profile management for my E-Commerce platform.\n\n' +
-      '**Challenges Faced and Overcome**\n' +
-      'As a fresher, understanding the nuances of asynchronous programming and debugging complex issues in the stack were significant challenges. Platforms like MDN, freeCodeCamp, and the developer community were instrumental in helping me succeed.\n\n' +
-      '**Final Thoughts**\n' +
-      'Mastering the MERN stack is a rewarding journey. With dedication and consistent practice, beginners can build impressive full-stack applications and enhance their problem-solving skills.'
+    content: `
+      The MERN (MongoDB, Express.js, React, Node.js) stack is a powerful and widely-used technology stack for building modern web applications. In this blog, I share my journey as a fresher in MERN stack development, the resources I used, the challenges I faced, and the strategies that helped me overcome them. <br />
+      
+      <strong>Why MERN Stack?</strong><br />
+      The MERN stack provides a seamless development experience. With JavaScript powering both the client and server sides, it simplifies development and allows for a more cohesive application structure. <br />
+      
+      <strong>Learning MongoDB Basics</strong><br />
+      MongoDB was the first tool I explored. Starting with basic CRUD operations, I built a simple student database project to solidify my understanding. Using tools like Compass and integrating MongoDB with Mongoose in my Express.js applications was a turning point. <br />
+      
+      <strong>Express.js: The Power of Middleware</strong><br />
+      Express.js helped me understand middleware and the MVC architecture. I implemented features like user authentication, routing, and session management in my projects, like an E-Commerce platform for vendors and buyers. <br />
+      
+      <strong>React: Frontend Magic</strong><br />
+      React was both exciting and challenging. I created reusable components, styled them with CSS modules, and managed state using hooks like useState and useEffect. Working on a dynamic navbar for buyers and vendors was a major highlight of my learning journey. <br />
+      
+      <strong>Node.js: Backend Foundation</strong><br />
+      Node.js tied the stack together. From setting up servers to managing APIs, I built scalable solutions like product and profile management for my E-Commerce platform. <br />
+      
+      <strong>Challenges Faced and Overcome</strong><br />
+      As a fresher, understanding the nuances of asynchronous programming and debugging complex issues in the stack were significant challenges. Platforms like MDN, freeCodeCamp, and the developer community were instrumental in helping me succeed. <br />
+      
+      <strong>Final Thoughts</strong><br />
+      Mastering the MERN stack is a rewarding journey. With dedication and consistent practice, beginners can build impressive full-stack applications and enhance their problem-solving skills.
+    `
   },
   {
     id: 2,
@@ -40,18 +48,23 @@ const blogPosts = [
     readTime: '10 min read',
     tags: ['E-Commerce', 'Full Stack', 'Project Development'],
     image: 'https://via.placeholder.com/200x300.png?text=E-Commerce',
-    content:
-      'Creating an E-Commerce platform was one of the most rewarding projects in my development journey. This blog covers everything from the initial idea to the final implementation, highlighting the key challenges faced and solutions adopted.\n\n' +
-      '**Key Features**\n' +
-      '- Separate accounts for vendors and buyers.\n' +
-      '- Product listing, cart management, and order tracking.\n' +
-      '- Cloudinary integration for media uploads and optimization.\n\n' +
-      '**Technical Stack**\n' +
-      'The project was built using the MERN stack. For media management, I used Cloudinary. For payment integrations, I researched Razorpay and Stripe.\n\n' +
-      '**Challenges**\n' +
-      'Handling user authentication and roles was tricky initially. To solve this, I implemented JSON Web Tokens (JWT) and carefully managed middleware to separate buyer and vendor routes.\n\n' +
-      '**Impact**\n' +
-      'The project emphasized the importance of user experience and backend scalability. It also improved my skills in Express.js, Mongoose, and integrating third-party APIs.'
+    content: `
+      Creating an E-Commerce platform was one of the most rewarding projects in my development journey. This blog covers everything from the initial idea to the final implementation, highlighting the key challenges faced and solutions adopted. <br />
+      
+      <strong>Key Features</strong><br />
+      - Separate accounts for vendors and buyers.<br />
+      - Product listing, cart management, and order tracking.<br />
+      - Cloudinary integration for media uploads and optimization. <br />
+      
+      <strong>Technical Stack</strong><br />
+      The project was built using the MERN stack. For media management, I used Cloudinary. For payment integrations, I researched Razorpay and Stripe. <br />
+      
+      <strong>Challenges</strong><br />
+      Handling user authentication and roles was tricky initially. To solve this, I implemented JSON Web Tokens (JWT) and carefully managed middleware to separate buyer and vendor routes. <br />
+      
+      <strong>Impact</strong><br />
+      The project emphasized the importance of user experience and backend scalability. It also improved my skills in Express.js, Mongoose, and integrating third-party APIs.
+    `
   },
   {
     id: 3,
@@ -62,15 +75,19 @@ const blogPosts = [
     readTime: '8 min read',
     tags: ['SQL', 'Data Management', 'Database'],
     image: 'https://via.placeholder.com/200x300.png?text=SQL',
-    content:
-      'SQL is a cornerstone of data management in modern applications. From basic queries to complex joins, this blog dives deep into how I utilized SQL in various projects.\n\n' +
-      '**SQL Basics**\n' +
-      'Starting with simple CRUD operations, I moved on to creating relationships between tables for managing item and customer data in an inventory system.\n\n' +
-      '**Performance Optimization**\n' +
-      '- Indexing to optimize large datasets.\n' +
-      '- Query optimization techniques.\n\n' +
-      '**Applications**\n' +
-      'I applied these skills in my billing management system, enhancing data retrieval times significantly.'
+    content: `
+      SQL is a cornerstone of data management in modern applications. From basic queries to complex joins, this blog dives deep into how I utilized SQL in various projects. <br />
+      
+      <strong>SQL Basics</strong><br />
+      Starting with simple CRUD operations, I moved on to creating relationships between tables for managing item and customer data in an inventory system. <br />
+      
+      <strong>Performance Optimization</strong><br />
+      - Indexing to optimize large datasets.<br />
+      - Query optimization techniques. <br />
+      
+      <strong>Applications</strong><br />
+      I applied these skills in my billing management system, enhancing data retrieval times significantly.
+    `
   },
   {
     id: 4,
@@ -81,15 +98,19 @@ const blogPosts = [
     readTime: '8 min read',
     tags: ['React', 'React Router', 'Web Development'],
     image: 'https://via.placeholder.com/200x300.png?text=React+Router',
-    content:
-      "React Router is a fundamental library for modern React applications. In this blog, I'll share how I implemented navigation for my E-Commerce platform and learned the nuances of routing.\n\n" +
-      '**Key Concepts**\n' +
-      '- Nested and dynamic routes.\n' +
-      '- Managing route-based access control for users (buyers vs vendors).\n\n' +
-      '**Challenges Faced**\n' +
-      'Handling browser history and ensuring a smooth user experience for protected routes required careful planning. With the use of `useNavigate` and `useParams`, I created a robust routing system.\n\n' +
-      '**Final Thoughts**\n' +
-      'React Router simplifies navigation, but it requires a structured approach. Mastering it is essential for any modern React developer.'
+    content: `
+      React Router is a fundamental library for modern React applications. In this blog, I'll share how I implemented navigation for my E-Commerce platform and learned the nuances of routing. <br />
+      
+      <strong>Key Concepts</strong><br />
+      - Nested and dynamic routes.<br />
+      - Managing route-based access control for users (buyers vs vendors). <br />
+      
+      <strong>Challenges Faced</strong><br />
+      Handling browser history and ensuring a smooth user experience for protected routes required careful planning. With the use of \`useNavigate\` and \`useParams\`, I created a robust routing system. <br />
+      
+      <strong>Final Thoughts</strong><br />
+      React Router simplifies navigation, but it requires a structured approach. Mastering it is essential for any modern React developer.
+    `
   },
   {
     id: 5,
@@ -100,13 +121,16 @@ const blogPosts = [
     readTime: '6 min read',
     tags: ['Cloud Computing', 'Virtualization', 'Technology'],
     image: 'https://via.placeholder.com/200x300.png?text=Virtualization',
-    content:
-      'Virtualization is a fundamental concept in cloud computing. In this blog, I explain the basics of virtualization and how it powers modern cloud infrastructures.\n\n' +
-      '**Core Concepts**\n' +
-      '- Virtual Machines and Containers.\n' +
-      '- Hypervisors.\n\n' +
-      '**Applications**\n' +
-      'From creating isolated environments to scaling applications, virtualization plays a key role in enabling flexible and cost-effective solutions.'
+    content: `
+      Virtualization is a fundamental concept in cloud computing. In this blog, I explain the basics of virtualization and how it powers modern cloud infrastructures. <br />
+      
+      <strong>Core Concepts</strong><br />
+      - Virtual Machines and Containers.<br />
+      - Hypervisors. <br />
+      
+      <strong>Applications</strong><br />
+      From creating isolated environments to scaling applications, virtualization plays a key role in enabling flexible and cost-effective solutions.
+    `
   },
   {
     id: 6,
@@ -117,13 +141,16 @@ const blogPosts = [
     readTime: '5 min read',
     tags: ['Table Tennis', 'Sports', 'Personal Development'],
     image: 'https://via.placeholder.com/200x300.png?text=Table+Tennis',
-    content:
-      'Sports teach life skills that go beyond the playing field. As a national-level table tennis player, I’ve learned resilience, strategic thinking, and adaptability. These qualities have positively influenced my technical and personal development.\n\n' +
-      '**Skills from Sports Applied to Technology**\n' +
-      '- **Focus:** Helps during debugging and solving complex programming challenges.\n' +
-      '- **Teamwork:** Enables seamless collaboration during team projects and hackathons.\n\n' +
-      '**Why Table Tennis?**\n' +
-      'Its fast-paced nature builds quick decision-making, essential for both sports and coding.'
+    content: `
+      Sports teach life skills that go beyond the playing field. As a national-level table tennis player, I’ve learned resilience, strategic thinking, and adaptability. These qualities have positively influenced my technical and personal development. <br />
+      
+      <strong>Skills from Sports Applied to Technology</strong><br />
+      - <strong>Focus:</strong> Helps during debugging and solving complex programming challenges.<br />
+      - <strong>Teamwork:</strong> Enables seamless collaboration during team projects and hackathons. <br />
+      
+      <strong>Why Table Tennis?</strong><br />
+      Its fast-paced nature builds quick decision-making, essential for both sports and coding.
+    `
   }
 ]
 
@@ -189,10 +216,16 @@ const BlogPostModal = ({ post, onClose }) => (
       animate={{ scale: 1, y: 0 }}
       exit={{ scale: 0.9, y: 50 }}
     >
-      <div className='p-6'>
+      <div className='p-6 relative'>
         <h2 className='text-2xl font-bold text-gray-800 dark:text-white mb-4'>
           {post.title}
         </h2>
+        <button
+          onClick={onClose}
+          className='absolute top-6 right-3 z-50 text-red-600 hover:text-red-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors bg-gray-300 rounded-full p-1'
+        >
+          <X size={25} />
+        </button>
         <div className='flex justify-between items-center mb-4'>
           <div className='flex items-center text-gray-600 dark:text-gray-400'>
             <Calendar className='w-4 h-4 mr-2' />
@@ -208,7 +241,10 @@ const BlogPostModal = ({ post, onClose }) => (
           alt={post.title}
           className='w-full h-64 object-cover rounded-lg mb-4'
         />
-        <p className='text-gray-700 dark:text-gray-300 mb-4'>{post.content}</p>
+        <p
+          className='text-gray-700 dark:text-gray-300 mb-4'
+          dangerouslySetInnerHTML={{ __html: post.content }}
+        ></p>
         <div className='flex flex-wrap gap-2 mb-4'>
           {post.tags.map((tag, index) => (
             <span
