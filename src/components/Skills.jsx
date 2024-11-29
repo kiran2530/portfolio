@@ -10,8 +10,7 @@ const skillCategories = [
     icon: Layout,
     skills: [
       { name: 'React', level: 90 },
-      { name: 'Vue.js', level: 85 },
-      { name: 'Angular', level: 80 },
+      { name: 'Angular', level: 50 },
       { name: 'HTML5/CSS3', level: 95 },
       { name: 'Tailwind CSS', level: 90 }
     ]
@@ -40,7 +39,7 @@ const skillCategories = [
     icon: Cloud,
     skills: [
       { name: 'AWS', level: 60 },
-      { name: 'CI/CD', level: 80 },
+      { name: 'CI/CD', level: 70 },
       { name: 'Google Cloud', level: 50 }
     ]
   },
@@ -49,15 +48,13 @@ const skillCategories = [
     icon: Smartphone,
     skills: [
       { name: 'React Native', level: 60 },
-      { name: 'Flutter', level: 50 },
-      { name: 'Android (Kotlin)', level: 75 }
+      { name: 'Android ', level: 75 }
     ]
   },
   {
     name: 'Other',
     icon: Code,
     skills: [
-      { name: 'GraphQL', level: 60 },
       { name: 'RESTful APIs', level: 90 },
       { name: 'WebSockets', level: 82 },
       { name: 'TypeScript', level: 60 },
