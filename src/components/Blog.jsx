@@ -7,75 +7,123 @@ import { Calendar, Clock, ChevronRight, Search, Tag } from 'lucide-react'
 const blogPosts = [
   {
     id: 1,
-    title: 'Building an E-Commerce Platform: Best Practices and Key Challenges',
+    title: 'Navigating the MERN Stack Journey as a Fresher',
     excerpt:
-      'A breakdown of the essential considerations when building a scalable and efficient e-commerce platform from scratch.',
-    date: '2024-10-20',
-    readTime: '10 min read',
-    tags: ['E-Commerce', 'Full Stack', 'Web Development'],
-    image: 'https://via.placeholder.com/200x300.png?text=E-Commerce',
+      'A detailed guide for beginners exploring the MERN stack, covering essential tools, workflows, and challenges faced by a fresher.',
+    date: '2024-11-29',
+    readTime: '12 min read',
+    tags: ['MERN Stack', 'Web Development', 'Beginner'],
+    image: 'https://via.placeholder.com/200x300.png?text=MERN+Stack',
     content:
-      'Explore the architectural decisions, technology stack choices, and integration techniques involved in developing an e-commerce platform. Gain insights on how to handle common challenges like inventory management, user experience, and payment integration.'
+      'The MERN (MongoDB, Express.js, React, Node.js) stack is a powerful and widely-used technology stack for building modern web applications. In this blog, I share my journey as a fresher in MERN stack development, the resources I used, the challenges I faced, and the strategies that helped me overcome them.\n\n' +
+      '**Why MERN Stack?**\n' +
+      'The MERN stack provides a seamless development experience. With JavaScript powering both the client and server sides, it simplifies development and allows for a more cohesive application structure.\n\n' +
+      '**Learning MongoDB Basics**\n' +
+      'MongoDB was the first tool I explored. Starting with basic CRUD operations, I built a simple student database project to solidify my understanding. Using tools like Compass and integrating MongoDB with Mongoose in my Express.js applications was a turning point.\n\n' +
+      '**Express.js: The Power of Middleware**\n' +
+      'Express.js helped me understand middleware and the MVC architecture. I implemented features like user authentication, routing, and session management in my projects, like an E-Commerce platform for vendors and buyers.\n\n' +
+      '**React: Frontend Magic**\n' +
+      'React was both exciting and challenging. I created reusable components, styled them with CSS modules, and managed state using hooks like useState and useEffect. Working on a dynamic navbar for buyers and vendors was a major highlight of my learning journey.\n\n' +
+      '**Node.js: Backend Foundation**\n' +
+      'Node.js tied the stack together. From setting up servers to managing APIs, I built scalable solutions like product and profile management for my E-Commerce platform.\n\n' +
+      '**Challenges Faced and Overcome**\n' +
+      'As a fresher, understanding the nuances of asynchronous programming and debugging complex issues in the stack were significant challenges. Platforms like MDN, freeCodeCamp, and the developer community were instrumental in helping me succeed.\n\n' +
+      '**Final Thoughts**\n' +
+      'Mastering the MERN stack is a rewarding journey. With dedication and consistent practice, beginners can build impressive full-stack applications and enhance their problem-solving skills.'
   },
   {
     id: 2,
-    title: 'Mastering SQL: Effective Techniques for Data Management',
+    title: 'Building an E-Commerce Platform: A Developer’s Journey',
+    excerpt:
+      'Insights from building an E-Commerce platform tailored for vendors and buyers, focusing on challenges, solutions, and key features.',
+    date: '2024-11-29',
+    readTime: '10 min read',
+    tags: ['E-Commerce', 'Full Stack', 'Project Development'],
+    image: 'https://via.placeholder.com/200x300.png?text=E-Commerce',
+    content:
+      'Creating an E-Commerce platform was one of the most rewarding projects in my development journey. This blog covers everything from the initial idea to the final implementation, highlighting the key challenges faced and solutions adopted.\n\n' +
+      '**Key Features**\n' +
+      '- Separate accounts for vendors and buyers.\n' +
+      '- Product listing, cart management, and order tracking.\n' +
+      '- Cloudinary integration for media uploads and optimization.\n\n' +
+      '**Technical Stack**\n' +
+      'The project was built using the MERN stack. For media management, I used Cloudinary. For payment integrations, I researched Razorpay and Stripe.\n\n' +
+      '**Challenges**\n' +
+      'Handling user authentication and roles was tricky initially. To solve this, I implemented JSON Web Tokens (JWT) and carefully managed middleware to separate buyer and vendor routes.\n\n' +
+      '**Impact**\n' +
+      'The project emphasized the importance of user experience and backend scalability. It also improved my skills in Express.js, Mongoose, and integrating third-party APIs.'
+  },
+  {
+    id: 3,
+    title: 'Mastering SQL: Techniques for Efficient Data Management',
     excerpt:
       'An in-depth look at SQL techniques for efficient data management and performance optimization in modern applications.',
-    date: '2024-09-25',
+    date: '2024-11-29',
     readTime: '8 min read',
     tags: ['SQL', 'Data Management', 'Database'],
     image: 'https://via.placeholder.com/200x300.png?text=SQL',
     content:
-      'This article dives into optimizing SQL queries, handling complex joins, and creating indexes for large databases. Perfect for developers looking to improve query efficiency and understand data modeling in SQL.'
-  },
-  {
-    id: 3,
-    title: 'React Router: Simplifying Navigation in Modern Web Apps',
-    excerpt:
-      'Learn how to leverage React Router to enhance the user experience through smooth and intuitive navigation in single-page applications.',
-    date: '2024-08-18',
-    readTime: '7 min read',
-    tags: ['React', 'React Router', 'Web Development'],
-    image: 'https://via.placeholder.com/200x300.png?text=React+Router',
-    content:
-      'In this post, we cover the fundamentals of React Router, including nested routing, dynamic routing, and common pitfalls. Whether you’re building your first SPA or enhancing an existing one, this guide provides the essential knowledge to get started with React Router.'
+      'SQL is a cornerstone of data management in modern applications. From basic queries to complex joins, this blog dives deep into how I utilized SQL in various projects.\n\n' +
+      '**SQL Basics**\n' +
+      'Starting with simple CRUD operations, I moved on to creating relationships between tables for managing item and customer data in an inventory system.\n\n' +
+      '**Performance Optimization**\n' +
+      '- Indexing to optimize large datasets.\n' +
+      '- Query optimization techniques.\n\n' +
+      '**Applications**\n' +
+      'I applied these skills in my billing management system, enhancing data retrieval times significantly.'
   },
   {
     id: 4,
-    title: 'Cloudinary Integration: Managing Media in Your Web App',
+    title: 'React Router: Simplifying Navigation in Web Apps',
     excerpt:
-      'A guide to using Cloudinary for efficient media management and delivery in web applications.',
-    date: '2024-07-15',
-    readTime: '6 min read',
-    tags: ['Cloudinary', 'Media Management', 'Web Development'],
-    image: 'https://via.placeholder.com/200x300.png?text=Cloudinary',
+      'Learn how to leverage React Router to create seamless navigation experiences in single-page applications.',
+    date: '2024-11-29',
+    readTime: '8 min read',
+    tags: ['React', 'React Router', 'Web Development'],
+    image: 'https://via.placeholder.com/200x300.png?text=React+Router',
     content:
-      'Explore how to integrate Cloudinary for managing images and videos in your web application. From uploading and transforming media to optimizing performance, this article covers everything you need to get started with Cloudinary.'
+      "React Router is a fundamental library for modern React applications. In this blog, I'll share how I implemented navigation for my E-Commerce platform and learned the nuances of routing.\n\n" +
+      '**Key Concepts**\n' +
+      '- Nested and dynamic routes.\n' +
+      '- Managing route-based access control for users (buyers vs vendors).\n\n' +
+      '**Challenges Faced**\n' +
+      'Handling browser history and ensuring a smooth user experience for protected routes required careful planning. With the use of `useNavigate` and `useParams`, I created a robust routing system.\n\n' +
+      '**Final Thoughts**\n' +
+      'React Router simplifies navigation, but it requires a structured approach. Mastering it is essential for any modern React developer.'
   },
   {
     id: 5,
-    title: 'Effective Java Practices for Scalable Applications',
+    title: 'Understanding Virtualization in Cloud Computing',
     excerpt:
-      'Discover key Java techniques for building scalable and maintainable applications, from architecture to code optimization.',
-    date: '2024-06-30',
-    readTime: '9 min read',
-    tags: ['Java', 'Scalability', 'Backend Development'],
-    image: 'https://via.placeholder.com/200x300.png?text=Java',
-    content:
-      'This article discusses best practices in Java development, such as optimizing memory management, leveraging multithreading, and choosing the right frameworks. Ideal for developers looking to enhance their Java applications’ scalability and performance.'
-  },
-  {
-    id: 6,
-    title: 'Virtualization in Cloud Computing: An Introduction',
-    excerpt:
-      'Understand the fundamentals of virtualization and its role in enabling scalable, flexible cloud solutions.',
-    date: '2024-05-20',
+      'A beginner-friendly guide to understanding virtualization and its role in enabling scalable cloud solutions.',
+    date: '2024-11-29',
     readTime: '6 min read',
     tags: ['Cloud Computing', 'Virtualization', 'Technology'],
     image: 'https://via.placeholder.com/200x300.png?text=Virtualization',
     content:
-      'A primer on virtualization concepts in cloud computing, covering hypervisors, virtual machines, and containers. This article is designed for developers and IT enthusiasts new to virtualization, looking to understand its impact on cloud infrastructure.'
+      'Virtualization is a fundamental concept in cloud computing. In this blog, I explain the basics of virtualization and how it powers modern cloud infrastructures.\n\n' +
+      '**Core Concepts**\n' +
+      '- Virtual Machines and Containers.\n' +
+      '- Hypervisors.\n\n' +
+      '**Applications**\n' +
+      'From creating isolated environments to scaling applications, virtualization plays a key role in enabling flexible and cost-effective solutions.'
+  },
+  {
+    id: 6,
+    title: 'My Experience as a National-Level Table Tennis Player',
+    excerpt:
+      'How playing table tennis at a national level shaped my approach to problem-solving, teamwork, and perseverance.',
+    date: '2024-11-29',
+    readTime: '5 min read',
+    tags: ['Table Tennis', 'Sports', 'Personal Development'],
+    image: 'https://via.placeholder.com/200x300.png?text=Table+Tennis',
+    content:
+      'Sports teach life skills that go beyond the playing field. As a national-level table tennis player, I’ve learned resilience, strategic thinking, and adaptability. These qualities have positively influenced my technical and personal development.\n\n' +
+      '**Skills from Sports Applied to Technology**\n' +
+      '- **Focus:** Helps during debugging and solving complex programming challenges.\n' +
+      '- **Teamwork:** Enables seamless collaboration during team projects and hackathons.\n\n' +
+      '**Why Table Tennis?**\n' +
+      'Its fast-paced nature builds quick decision-making, essential for both sports and coding.'
   }
 ]
 
