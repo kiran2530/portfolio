@@ -59,7 +59,7 @@ export default function Footer () {
   }
 
   return (
-    <footer className='bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white py-12'>
+    <footer className='bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white pt-12'>
       <div className='container mx-auto px-4'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
           {/* About Section */}
@@ -146,27 +146,6 @@ export default function Footer () {
             <p className='text-gray-600 dark:text-gray-400 mb-4'>
               Subscribe to my newsletter for the latest updates and insights.
             </p>
-            <form
-              onSubmit={handleSubscribe}
-              className='flex flex-col space-y-2'
-            >
-              <input
-                type='email'
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder='Enter your email'
-                required
-                className='bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-primary'
-              />
-              <motion.button
-                type='submit'
-                className='bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded-md transition-colors duration-300 flex items-center justify-center'
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Subscribe <ArrowRight size={16} className='ml-2' />
-              </motion.button>
-            </form>
             {subscribeStatus && (
               <motion.p
                 className='mt-2 text-sm text-green-400'
@@ -182,7 +161,7 @@ export default function Footer () {
 
         {/* Copyright */}
         <motion.div
-          className='mt-2 pt-8 border-t border-gray-200 dark:border-gray-800 text-center text-gray-600 dark:text-gray-400'
+          className='mt-2 pt-4 border-t border-gray-200 dark:border-gray-800 text-center text-gray-600 dark:text-gray-400'
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.8 }}
