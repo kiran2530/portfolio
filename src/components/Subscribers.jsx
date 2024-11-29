@@ -59,7 +59,7 @@ function Subscribers ({ isOpen, onClose, subscribers }) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className='space-y-3 overflow-y-auto relative'
+                className='space-y-3 max-h-[70vh] overflow-y-auto relative'
               >
                 <AnimatePresence>
                   {subscribers.map((subscriber, index) => (
