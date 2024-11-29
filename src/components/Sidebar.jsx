@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Github, Linkedin, Mail, UserPlus, Users } from 'lucide-react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import SubscriptionModal from './SubscriptionModal'
 import Subscribers from './Subscribers'
+import axios from 'axios'
 
 const navItems = [
   'HOME',
@@ -20,8 +21,26 @@ const navItems = [
 function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
   const location = useLocation()
   const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(false)
   const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false)
   const [isSubscribersOpen, setIsSubscribersOpen] = useState(false)
+  const [subscribers, setSubscribers] = useState([])
+
+  const fetchSubscribers = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios.get('http://localhost:5000/api/users')
+      setSubscribers(response.data.users)
+    } catch (error) {
+      console.error('Error fetching subscribers:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchSubscribers()
+  }, [])
 
   const handleInternalLinkClick = (e, to) => {
     if (setIsSidebarOpen) {
@@ -120,13 +139,30 @@ function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
           Subscribe
         </motion.button>
         <motion.button
+          disabled={isLoading ? true : false}
           onClick={() => setIsSubscribersOpen(true)}
-          className='flex items-center justify-center px-2 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300 text-sm'
+          className={`flex items-center justify-center px-2 py-2 ${isLoading? 'cursor-not-allowed':'cursor-pointer'} bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300 text-sm`}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           {/* <Users size={20} className='mr-2' /> */}
-          <p className='mr-1'>123</p>
+          <div className='mr-2'>
+            {isLoading ? (
+              <motion.div
+                className='w-4 h-4 border-t-2 border-white rounded-full animate-spin'
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 1,
+                  repeat: Infinity,
+                  ease: 'linear'
+                }}
+              />
+            ) : subscribers.length < 10 ? (
+              `0${subscribers.length}`
+            ) : (
+              subscribers.length
+            )}
+          </div>
           <p>Subscribers</p>
         </motion.button>
       </div>
@@ -172,6 +208,7 @@ function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
           <SubscriptionModal
             isOpen={isSubscriptionModalOpen}
             onClose={() => setIsSubscriptionModalOpen(false)}
+            fetchSubscribers={fetchSubscribers}
           />
         )}
       </AnimatePresence>
@@ -180,6 +217,7 @@ function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
           <Subscribers
             isOpen={isSubscribersOpen}
             onClose={() => setIsSubscribersOpen(false)}
+            subscribers={subscribers}
           />
         )}
       </AnimatePresence>

@@ -1,38 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Users, Loader } from 'lucide-react'
+import axios from 'axios'
 
-function Subscribers ({ isOpen, onClose }) {
-  const [subscribers, setSubscribers] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    const fetchSubscribers = async () => {
-      setIsLoading(true)
-      try {
-        // Simulating API call with Promise
-        const response = await new Promise(resolve => {
-          setTimeout(() => {
-            resolve([
-              { _id: '1', name: 'John Doe', email: 'john@example.com' },
-              { _id: '2', name: 'Jane Smith', email: 'jane@example.com' },
-              { _id: '3', name: 'Alice Johnson', email: 'alice@example.com' },
-              { _id: '4', name: 'Bob Williams', email: 'bob@example.com' },
-              { _id: '5', name: 'Emma Brown', email: 'emma@example.com' }
-            ])
-          }, 1500)
-        })
-        setSubscribers(response)
-      } catch (error) {
-        console.error('Error fetching subscribers:', error)
-      }
-      setIsLoading(false)
-    }
-
-    if (isOpen) {
-      fetchSubscribers()
-    }
-  }, [isOpen])
+function Subscribers ({ isOpen, onClose, subscribers }) {
+  // const [subscribers, setSubscribers] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   return (
     <AnimatePresence>
@@ -108,10 +81,13 @@ function Subscribers ({ isOpen, onClose }) {
                           ease: 'linear'
                         }}
                       />
-                      <h3 className='font-semibold text-gray-800 dark:text-white text-lg mb-1 relative'>
-                        {subscriber.name}
-                      </h3>
-                      <p className='text-gray-600 dark:text-gray-300 relative'>
+                      <div className='flex items-center'>
+                        <div className='h-5 w-5 mr-1 rounded-full bg-gray-600'></div>
+                        <h3 className='font-semibold text-gray-800 dark:text-white text-lg mb-1 relative'>
+                          {subscriber.name}
+                        </h3>
+                      </div>
+                      <p className='text-gray-600 dark:text-gray-300 relative ml-6'>
                         {subscriber.email}
                       </p>
                     </motion.li>
