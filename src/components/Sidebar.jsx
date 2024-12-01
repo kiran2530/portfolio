@@ -4,8 +4,6 @@ import { X, Github, Linkedin, Mail, UserPlus, Users } from 'lucide-react'
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import SubscriptionModal from './SubscriptionModal'
 import Subscribers from './Subscribers'
-import axios from 'axios'
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 
 const navItems = [
   'HOME',
@@ -19,29 +17,11 @@ const navItems = [
   'CONTACT'
 ]
 
-function Sidebar ({ closeSidebar, setIsSidebarOpen }) {
+function Sidebar ({ closeSidebar, setIsSidebarOpen, isLoading, subscribers, fetchSubscribers }) {
   const location = useLocation()
   const navigate = useNavigate()
-  const [isLoading, setIsLoading] = useState(false)
   const [isSubscriptionModalOpen, setIsSubscriptionModalOpen] = useState(false)
   const [isSubscribersOpen, setIsSubscribersOpen] = useState(false)
-  const [subscribers, setSubscribers] = useState([])
-
-  const fetchSubscribers = async () => {
-    setIsLoading(true)
-    try {
-      const response = await axios.get(`${BACKEND_URL}/api/users`)
-      setSubscribers(response.data.users)
-    } catch (error) {
-      console.error('Error fetching subscribers:', error)
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  useEffect(() => {
-    fetchSubscribers()
-  }, [])
 
   const handleInternalLinkClick = (e, to) => {
     if (setIsSidebarOpen) {

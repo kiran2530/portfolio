@@ -13,12 +13,29 @@ import Work from './components/Work'
 import Blog from './components/Blog'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import axios from 'axios'
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 
 function App () {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [subscribers, setSubscribers] = useState([])
+
+  const fetchSubscribers = async () => {
+    setIsLoading(true)
+    try {
+      const response = await axios.get(`${BACKEND_URL}/api/users`)
+      setSubscribers(response.data.users)
+    } catch (error) {
+      console.error('Error fetching subscribers:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   useEffect(() => {
+    fetchSubscribers()
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
     }
@@ -36,7 +53,11 @@ function App () {
       <div className='flex overflow-hidden'>
         {!isMobile && (
           <div className='w-64 bg-white shadow-lg'>
-            <Sidebar />
+            <Sidebar
+              isLoading={isLoading}
+              subscribers={subscribers.reverse()}
+              fetchSubscribers={fetchSubscribers}
+            />
           </div>
         )}
         <div className='flex-1 flex flex-col overflow-hidden '>
@@ -69,7 +90,13 @@ function App () {
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               className='fixed inset-y-0 right-0 z-50 w-64 bg-white shadow-lg'
             >
-              <Sidebar closeSidebar={() => setIsSidebarOpen(false)} setIsSidebarOpen={setIsSidebarOpen}/>
+              <Sidebar
+                closeSidebar={() => setIsSidebarOpen(false)}
+                setIsSidebarOpen={setIsSidebarOpen}
+                isLoading={isLoading}
+                subscribers={subscribers.reverse()}
+                fetchSubscribers={fetchSubscribers}
+              />
             </motion.div>
           )}
         </AnimatePresence>

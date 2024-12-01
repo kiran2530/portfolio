@@ -62,36 +62,39 @@ function Subscribers ({ isOpen, onClose, subscribers }) {
                 className='space-y-3 max-h-[70vh] overflow-y-auto relative'
               >
                 <AnimatePresence>
-                  {subscribers.map((subscriber, index) => (
-                    <motion.li
-                      key={subscriber._id}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 20 }}
-                      transition={{ delay: index * 0.1 }}
-                      className='bg-white dark:bg-gray-700 p-4 rounded-lg shadow-md relative overflow-hidden'
-                    >
-                      <motion.div
-                        className='absolute inset-0 bg-gradient-to-r from-green-200 to-blue-200 dark:from-green-900 dark:to-blue-900 opacity-20'
-                        initial={{ x: '-100%' }}
-                        animate={{ x: '100%' }}
-                        transition={{
-                          repeat: Infinity,
-                          duration: 3,
-                          ease: 'linear'
-                        }}
-                      />
-                      <div className='flex items-center'>
-                        <div className='h-5 w-5 mr-1 rounded-full bg-gray-600'></div>
-                        <h3 className='font-semibold text-gray-800 dark:text-white text-lg mb-1 relative'>
-                          {subscriber.name}
-                        </h3>
-                      </div>
-                      <p className='text-gray-600 dark:text-gray-300 relative ml-6 text-sm'>
-                        {subscriber.email}
-                      </p>
-                    </motion.li>
-                  ))}
+                  {subscribers
+                    .slice()
+                    .reverse()
+                    .map((subscriber, index) => (
+                      <motion.li
+                        key={subscriber._id}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 20 }}
+                        transition={{ delay: index * 0.1 }}
+                        className='bg-white dark:bg-gray-700 p-4 rounded-lg shadow-md relative overflow-hidden'
+                      >
+                        <motion.div
+                          className='absolute inset-0 bg-gradient-to-r from-green-200 to-blue-200 dark:from-green-900 dark:to-blue-900 opacity-20'
+                          initial={{ x: '-100%' }}
+                          animate={{ x: '100%' }}
+                          transition={{
+                            repeat: Infinity,
+                            duration: 3,
+                            ease: 'linear'
+                          }}
+                        />
+                        <div className='flex items-center'>
+                          <div className='h-5 w-5 mr-1 rounded-full bg-gray-600'></div>
+                          <h3 className='font-semibold text-gray-800 dark:text-white text-lg mb-1 relative'>
+                            {subscriber.name}
+                          </h3>
+                        </div>
+                        <p className='text-gray-600 dark:text-gray-300 relative ml-6 text-sm'>
+                          {subscriber.email}
+                        </p>
+                      </motion.li>
+                    ))}
                 </AnimatePresence>
               </motion.ul>
             )}
