@@ -26,7 +26,7 @@ function App () {
     setIsLoading(true)
     try {
       const response = await axios.get(`${BACKEND_URL}/api/users`)
-      setSubscribers(response.data.users)
+      setSubscribers(response.data.users.reverse())
     } catch (error) {
       console.error('Error fetching subscribers:', error)
     } finally {
