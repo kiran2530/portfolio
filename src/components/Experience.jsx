@@ -32,7 +32,7 @@ const experienceData = [
   },
   {
     title: 'Full Stack Developer (Major Project)',
-    company: 'Sant Gajanan Maharaj College of Engineering',
+    company: 'Sant Gajanan Maharaj College of Engineering, Mahagaon',
     logo: 'https://via.placeholder.com/80x80.png?text=Project+Logo',
     location: 'Mahagaon, Kolhapur, Maharashtra',
     period: 'Sep 2024 - Present',
@@ -49,6 +49,29 @@ const experienceData = [
       'Node.js',
       'MongoDB',
       'Cloudinary'
+    ],
+    color: 'from-blue-500 to-cyan-500'
+  },
+  {
+    title: 'SGM Feedback System',
+    company: 'Sant Gajanan Maharaj Education Group',
+    logo: 'https://via.placeholder.com/80x80.png?text=SGM+Feedback',
+    location:
+      'Mahagaon, Taluka Gadhinglaj, District Kolhapur, Maharashtra, India - 416503',
+    period: 'Feb 2024 - Present',
+    description:
+      'Developing a feedback management system for colleges where administrators manage faculty, subjects, and classes, and students provide structured feedback.',
+    achievements: [
+      'Implemented an admin panel to manage faculty, subjects, and departments efficiently',
+      'Designed an intuitive feedback system where students can rate subjects based on predefined criteria',
+      'Developed a detailed reporting system for analyzing faculty and subject performance based on student responses'
+    ],
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'Supabase',
+      'React'
     ],
     color: 'from-blue-500 to-cyan-500'
   }
